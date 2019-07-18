@@ -5,10 +5,17 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
+const path = require("path");
+var exphbs = require("express-handlebars");
 
 // define the variable
 const app = express();
 const port = 3000;
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.engine("handlebars", exphbs());
+app.set("view engine", "handlebars");
+
 dotenv.config();
 // mongodb connection
 
@@ -27,7 +34,12 @@ const dashboardRoutes = require("./routes/dashboard");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
+app.use(express.static(path.join(__dirname, "../public")));
 
+//main view
+app.use("/", (req, res) => {
+  res.render("layouts/main");
+});
 app.use("/api/emp", empRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);

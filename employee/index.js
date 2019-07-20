@@ -6,6 +6,8 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
 const path = require("path");
+const verify = require("./routes/verifyToken");
+
 var exphbs = require("express-handlebars");
 
 // define the variable
@@ -18,7 +20,6 @@ app.set("view engine", "handlebars");
 
 dotenv.config();
 // mongodb connection
-
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true });
 const db = mongoose.connection;
 
@@ -31,6 +32,7 @@ const authRoutes = require("./routes/auth");
 const dashboardRoutes = require("./routes/dashboard");
 
 // middleware information
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
@@ -40,8 +42,12 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use("/", (req, res) => {
   res.render("layouts/main");
 });
-app.use("/api/emp", empRoutes);
 app.use("/api/auth", authRoutes);
+
+// use verify at the index level
+app.use(verify);
+
+app.use("/api/emp", empRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 app.listen(port, () => {

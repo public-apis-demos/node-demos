@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const employee = require("../models/emp");
+const verify = require("../routes/auth");
 // default router
-router.get("/", (req, res) => {
+router.get("/", verify, (req, res) => {
   res.json({
     name: "welcome to emp api"
   });
 });
 
 // list of employesss
-router.get("/employees", async (req, res) => {
+router.get("/employees", verify, async (req, res) => {
   try {
     const emp = await employee.find();
     res.json(emp);
@@ -19,13 +20,13 @@ router.get("/employees", async (req, res) => {
 });
 
 // singe employee
-router.get("/employees/:id", singeEmployee, (req, res) => {
+router.get("/employees/:id", verify, singeEmployee, (req, res) => {
   //res.send("single emplyee");
   res.json(res.emp);
 });
 
 // create employee
-router.post("/create", async (req, res) => {
+router.post("/create", verify, async (req, res) => {
   const empdata = new employee({
     employee_name: req.body.employee_name,
     employee_salary: req.body.employee_salary,
@@ -42,7 +43,7 @@ router.post("/create", async (req, res) => {
 });
 
 // upddate the employee
-router.put("/update/:id", singeEmployee, async (req, res) => {
+router.put("/update/:id", verify, singeEmployee, async (req, res) => {
   //res.send("update");
 
   if (req.body.employee_name != null) {
@@ -64,7 +65,7 @@ router.put("/update/:id", singeEmployee, async (req, res) => {
 });
 
 // delete the employee
-router.delete("/delete/:id", singeEmployee, async (req, res) => {
+router.delete("/delete/:id", verify, singeEmployee, async (req, res) => {
   //res.send("delete");
   console.log(req, ree);
   try {

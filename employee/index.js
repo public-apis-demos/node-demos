@@ -12,6 +12,7 @@ var exphbs = require("express-handlebars");
 
 // define the variable
 const app = express();
+const hostname = "127.0.0.1";
 const port = 3000;
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -36,20 +37,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
+// use verify at the index level
+// app.use(verify);
 app.use(express.static(path.join(__dirname, "../public")));
 
-//main view
-app.use("/", (req, res) => {
-  res.render("layouts/main");
-});
-app.use("/api/auth", authRoutes);
-
-// use verify at the index level
-app.use(verify);
-
+app.use("/api", authRoutes);
 app.use("/api/emp", empRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 app.listen(port, () => {
-  console.log("your server is running");
+  console.log(`Server running at http://${hostname}:${port}/`);
 });

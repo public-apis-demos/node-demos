@@ -1,10 +1,10 @@
 {
   "name": "current-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "basic crud operation",
   "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",

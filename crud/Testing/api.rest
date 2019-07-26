@@ -1,0 +1,44 @@
+### Getting all
+http://localhost:3000/api/
+
+
+### Getting One
+http://localhost:3000/api/5d178c1491979e4270c94ebe
+
+
+### Getting One recod
+http://localhost:3000/api/5d178c9e91979e4270c94ec0
+
+
+### Createing one
+
+POST http://localhost:3000/api/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "subscribedToChannel": "TV5"
+}
+### Createing one
+
+POST http://localhost:3000/api/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "srinivas",
+    "subscribedToChannel": "hello"
+}
+
+### Updating one
+
+PUT http://localhost:3000/api/5d3b25bfc6e37453308b7147 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "another data"
+}
+
+
+### Deleting One
+
+DELETE  http://localhost:3000/api/5d3b262ac6e37453308b7148 HTTP/1.1

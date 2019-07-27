@@ -1,0 +1,62 @@
+
+### create the user
+POST http://127.0.0.1:3001/api/register HTTP/1.1
+content-type: application/json
+
+{
+	"name": "testing",
+    "email":"testing@gmail.com",
+    "password": "testing"
+}
+
+### login the user
+
+
+POST http://127.0.0.1:3001/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "email":"testing@gmail.com",
+    "password": "testing"
+}
+### dsashboar employee api
+
+### welcome message 
+GET  http://127.0.0.1:3001/api/emp HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y
+
+
+### create the employee
+POST http://127.0.0.1:3001/api/emp/create  HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y
+
+{
+	"employee_name": "srinas",
+    "employee_salary":"1000",
+    "employee_age": "30"
+}
+
+### list of employesss
+GET  http://127.0.0.1:3001/api/emp/employees HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y
+
+### singe employee
+GET  http://127.0.0.1:3001/api/emp/employees/5d3bcfb3b4cd1f2350fa2f89  HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y
+
+
+
+### list of employee
+GET  http://127.0.0.1:3001/api/emp/employees HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y
+
+###emp list
+
+GET  http://127.0.0.1:3001/api/dashboard/settings HTTP/1.1
+content-type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNiY2NjZTM1ZmQ3ZTI2Y2M2N2ZiNjQiLCJpYXQiOjE1NjQyMDA2NjR9.5NCMcU4V9h6bUzTuoGSZvrNy1l6LoBTqbyhwC5MAs4Y

@@ -13,7 +13,7 @@ var exphbs = require("express-handlebars");
 // define the variable
 const app = express();
 const hostname = "127.0.0.1";
-const port = 3000;
+const port = 3001;
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.engine("handlebars", exphbs());

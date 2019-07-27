@@ -1,6 +1,6 @@
 function getCatData() {
   //const URL = "https://aws.random.cat/meow";
-  const URL = "http://localhost:3000/meow";
+  const URL = "http://localhost:3002/meow";
   fetch(URL)
     .then(function(response) {
       console.log(response);

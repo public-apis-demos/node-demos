@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const verify = require("../routes/auth");
+const verifyToken = require("../routes/verifyToken");
 router.get("/", (req, res) => {
   res.send(req.user);
 });
 
-router.get("/settings", verify, (req, res) => {
+router.get("/settings", verifyToken, (req, res) => {
   res.json({
     name: "hello"
   });

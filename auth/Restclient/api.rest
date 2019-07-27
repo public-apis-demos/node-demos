@@ -1,0 +1,32 @@
+### regiser
+
+POST  http://localhost:3001/api/user/register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample1234",
+    "email": "test1@gmail.com",
+    "password": "123456"
+}
+
+### login
+
+POST  http://localhost:3001/api/user/login HTTP/1.1
+content-type: application/json
+
+{
+     "email": "test1@gmail.com",
+    "password": "123456"
+}
+
+
+### settings
+
+GET http://localhost:3001/api/dashboard/settings HTTP/1.1
+content-Type: application/json
+
+### dashbord
+
+GET http://localhost:3001/api/dashboard HTTP/1.1
+content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDNjNzU5ZTlkY2FhOTQ5MDQyNGNkMmEiLCJpYXQiOjE1NjQyNDMzNzF9.MI0EMoVn6bPD1AuftIVJfFk564nDEQUyxxlxPBuLk58
